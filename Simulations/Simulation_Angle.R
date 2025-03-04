@@ -15,7 +15,7 @@ for (noise_sd in noise_sd_values) {
   for (noise_fwhm in noise_fwhm_values) {
     
     # Print current loop status
-    cat("Running simulation for Noise SD:", noise_sd, ", Noise FWHM:", noise_fwhm, "\n")
+    #cat("Running simulation for Noise SD:", noise_sd, ", Noise FWHM:", noise_fwhm, "\n")
     
     
     # Initialize sample size and track methods that have met power threshold
@@ -50,8 +50,18 @@ for (noise_sd in noise_sd_values) {
       
       # Increment sample size for next iteration
       sample_size <- sample_size + 1
+      # Clean up variables and invoke garbage collection
+      rm(power_results, power_result_summary)  # Remove variables no longer needed
+      # Invoke garbage collection after each iteration
+      gc()
     }
+    # Clean up after completing a noise_fwhm simulation
+    rm(methods_to_run)
+    # Invoke garbage collection after completing a noise_fwhm simulation
+    gc()
   }
+  # Invoke garbage collection after completing a noise_sd simulation
+  gc()
 }
 
 # Save or inspect results_list for tracking after simulation completes

@@ -5,8 +5,6 @@ source("Fmax.R")
 #IWT function
 source("IWT.R")
 
-#path for vgrf_mean_data
-path <- "vgrf_fig2.txt"
 
 
 #############Loading Library#####################
@@ -14,6 +12,11 @@ library(fda)
 #library(fdatest)
 #install.packages("reticulate")
 library(reticulate) # to read python code
+
+# if you are not using virtual environment, you can comment out the following code
+#use_python("~/Public/vpyenv/bin/python", required = TRUE)
+
+
 #pip install spm1d
 spm1d <- reticulate::import("spm1d")
 numpy <- reticulate::import("numpy")
