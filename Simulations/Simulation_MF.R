@@ -3,7 +3,7 @@
 source("Simulations/Parallel.R")
 
 # Define the input parameters
-noise_sd_values <- c(40, 50)
+noise_sd_values <- c(30, 40)
 noise_fwhm_values <- c(5, 15, 25, 35, 45)
 methods <- c("TWT", "IWT", "Nonparametric_SPM", "ERL")
 max_sample_size <- 60
